@@ -1,0 +1,69 @@
+# Simulate RAM using an ArrayList
+RAM = []
+
+# User Input function
+def get_user_input():
+  course_name = input("Enter Course Name: ")
+  professor = input("Enter Professor Name: ")
+  # ... collect other user input data
+  return {"course_name": course_name, "professor": professor}
+
+# Simulate Load Program (data to CPU)
+def load_program(data):
+  RAM.append(data)
+  print("Data loaded to CPU...")
+
+# Simulate Refresh RAM (data from CPU)
+def refresh_ram():
+  processed_data = RAM.pop()
+  print("Data processed by CPU and returned to RAM...")
+  return processed_data
+
+# User Output function
+def display_output(data):
+  print(f"Course: {data['course_name']}")
+  print(f"Professor: {data['professor']}")
+  # ... display other processed data
+
+# Constraint Engine (Custom) - simplified example
+def check_constraints(data):
+  # Simulate checking for conflicts (replace with actual logic)
+  if data["course_name"] == "Calculus":
+    print("Warning: Calculus might have scheduling conflicts!")
+  return True  # Simulate successful validation
+
+# Conflict Resolution (Custom) - simplified example
+def resolve_conflicts(data):
+  # Simulate suggesting alternatives (replace with actual logic)
+  print("Consider taking Statistics instead of Calculus this semester.")
+
+# Data Visualization (Custom) - basic example
+def visualize_data(data):
+  # Simulate creating a visual schedule (replace with actual logic)
+  print("Generating a visual representation of your schedule...")
+
+def main():
+  # Get user input
+  user_data = get_user_input()
+
+  # Load program (data to CPU)
+  load_program(user_data)
+
+  # Refresh RAM (data from CPU with processing)
+  processed_data = refresh_ram()
+
+  # Constraint Engine (validate against constraints)
+  if check_constraints(processed_data):
+    # Conflict Resolution (suggest alternatives if needed)
+    resolve_conflicts(processed_data)
+
+    # Data Visualization (display visual schedule)
+    visualize_data(processed_data)
+
+    # User Output (display final data)
+    display_output(processed_data)
+  else:
+    print("Error: Course scheduling conflicts detected.")
+
+if __name__ == "__main__":
+  main()
